@@ -43,6 +43,18 @@ app.get('/:auteur',function (req ,res){
         res.send( "auteur non trouver")
     }
 })
+
+app.get('/:auteur/books',function (req ,res){
+    var auteurIndex = req.params.auteur
+  //  console.log('auteurIndex :', auteurIndex )
+    if (auteurIndex  >= 1 && auteurIndex < authors.length ) {
+    
+        res.send(authors[auteurIndex-1].books.join(","))
+        
+    }else{
+        res.send( "auteur non trouver")
+    }
+})
 app.listen(port, () =>{
     console.log("server en ecoute au port :", port);
 })
