@@ -55,6 +55,13 @@ app.get('/:auteur/books',function (req ,res){
         res.send( "auteur non trouver")
     }
 })
+
+
+app.get('*', function(req, res) {
+    res.send('All routes - Erreur 404');
+});
+
+
 app.listen(port, () =>{
     console.log("server en ecoute au port :", port);
 })
